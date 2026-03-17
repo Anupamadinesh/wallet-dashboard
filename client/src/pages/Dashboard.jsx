@@ -32,7 +32,8 @@ function Dashboard() {
   const loadDashboard = async () => {
     try {
       const response = await fetchDashboard();
-      setDashboard(response.data.data);
+      console.log("API RESPONSE:", response.data);
+      setDashboard(response.data?.data || null);
     } catch (error) {
       console.error("Failed to load dashboard:", error);
     }
