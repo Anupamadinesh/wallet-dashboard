@@ -31,9 +31,14 @@ function Dashboard() {
   // ✅ Load dashboard
   const loadDashboard = async () => {
     try {
-      const response = await fetchDashboard();
-      console.log("API RESPONSE:", response.data);
-      setDashboard(response.data?.data || null);
+     const response = await fetchDashboard();
+console.log("API:", response.data);
+
+if (response.data?.data) {
+  setDashboard(response.data.data);
+} else {
+  setDashboard(null);
+}
     } catch (error) {
       console.error("Failed to load dashboard:", error);
     }
@@ -104,7 +109,7 @@ function Dashboard() {
   };
 
   if (loading) return <div className="page-loader">Loading dashboard...</div>;
-  if (!dashboard) return <div className="page-loader">No data found</div>;
+  if (!dashboard) return <div className="page-loader">Loading dashboard...</div>;
 
   return (
     <div className="page">
