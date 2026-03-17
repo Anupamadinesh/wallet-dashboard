@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://wallet-backend.onrender.com/api"
+  baseURL: "https://wallet-backend-4rfm.onrender.com/api"
 });
 
 export const fetchDashboard = () => api.get("/dashboard");
